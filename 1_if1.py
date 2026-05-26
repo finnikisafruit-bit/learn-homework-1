@@ -14,12 +14,28 @@
 
 """
 
+import sys
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    age = int(input('Введите ваш возраст: '))
+    if age > 25:
+        return 'Пользователь должен работать'
+    elif 18 < age <= 25:
+        return 'Пользователь должен учиться в ВУЗе'
+    elif 7 < age <= 18:
+        return 'Пользователь должен учиться в школе'    
+    elif  age <= 7:
+        return 'Пользователь должен учиться в детском саду'    
+
+result = main()
+print(result)
 
 if __name__ == "__main__":
     main()

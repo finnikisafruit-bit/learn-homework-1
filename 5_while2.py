@@ -14,14 +14,35 @@
     Программа: Программирую
     
 """
+import sys
+import io
 
-questions_and_answers = {}
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+
+questions_and_answers = {
+
+   'Как дела?': 'Отлично',
+
+   'Пойдем погуляем?': 'Я занят =(',
+
+   'Смотрел футбол?': 'Я предпочитаю хоккей',
+
+   'Какое твое любимое блюдо?': 'Котлеты с пюрешкой'
+
+}
+
 
 def ask_user(answers_dict):
     """
     Замените pass на ваш код
     """
-    pass
-    
+    while True:
+      s = input('Задай вопрос: ')
+      if s == 'Стоп':
+         break
+      elif s in answers_dict:
+         print(answers_dict[s])    
+         
 if __name__ == "__main__":
     ask_user(questions_and_answers)

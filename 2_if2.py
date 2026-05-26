@@ -15,12 +15,36 @@
 
 """
 
-def main():
+import sys
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+def main(string_1, string_2):
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
+    if type(string_1) != str or type(string_2) != str:
+        return 0
     
+    elif string_1 == string_2:
+        return 1   
+    
+    elif string_1 != string_2 and len(string_1) > len(string_2):
+        return 2
+    
+    elif string_1 != string_2 and string_2 == 'learn':
+        return 3
+
+print(main('Чеснок', 123)) # второе значение int  - должно вывести 0
+print(main(True, 'Морковь')) # первое значение bool - должно вывести 0
+print(main('яблоко', 'яблоко')) # строки одинаковые - должно вывести 1
+print(main('морковь', 'лук')) # строки разные и первая длинее - должно вывести  2  
+print(main('лук', 'learn')) # строки разные и вторая 'learn' - должно вывести 3
+
+
+
+
 if __name__ == "__main__":
     main()
