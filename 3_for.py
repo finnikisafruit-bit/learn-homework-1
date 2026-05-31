@@ -43,17 +43,18 @@ def main():
         product['average_sold'] = round(total_sold / len(product['items_sold']))
 
     summary = 0
-    summary_average = 0
+    count_of_month = 0
 
     for product in products:
         summary += product['total_sold']
-        summary_average += product['average_sold']
+        count_of_month += len(product['items_sold'])
         print(f'{product["product"]} было продано {product["total_sold"]} штук')
         print(f'{product["product"]} было продано в среднем {product["average_sold"]} штук')
-    
+
+    summary_average = summary/count_of_month
 
     print(f'Суммарное количество продаж всех товаров {summary}')
-    print(f'Суммарное количество продаж всех товаров {summary_average}')
+    print(f'Cреднее количество продаж всех товаров {summary_average}')
     
 if __name__ == "__main__":
     main()

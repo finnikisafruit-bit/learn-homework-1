@@ -20,7 +20,6 @@ def hello_user():
     if s == 'Хорошо':
       break
     
-hello_user()
     
 if __name__ == "__main__":
     hello_user()
