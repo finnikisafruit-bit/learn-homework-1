@@ -17,13 +17,14 @@ import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 def hello_user():
-  try:
-    while True:
+  while True:
+    try:
       s = input('Как дела?')
       if s == 'Хорошо':
         break
-  except KeyboardInterrupt:
-    print('Пока!')
-    
+    except KeyboardInterrupt:
+      print('Пока!')
+      break
+
 if __name__ == "__main__":
     hello_user()
